@@ -6,7 +6,7 @@
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 16:04:41 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/08 17:20:55 by vikaradu         ###   ########.fr       */
+/*   Updated: 2025/07/09 21:13:20 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	unsigned int	i;
 
 	i = 0;
-	while (src[i] != '\0' && i <= n - 1)
+	while (src[i] != '\0' && i < n)
 	{
 	dest[i] = src[i];
 	++i;
 	}
-	while (i <= n - 1)
+	while (i < n)
 	{
 	dest[i] = '\0';
 	++i;

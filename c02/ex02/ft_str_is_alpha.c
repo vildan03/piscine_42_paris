@@ -6,7 +6,7 @@
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 17:54:38 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/09 18:14:52 by vikaradu         ###   ########.fr       */
+/*   Updated: 2025/07/09 21:23:51 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	ft_str_is_alpha(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (! str[i] >= 'a' && str[i] <= 'z')
+		if (!(str[i] >= 'a' && str[i] <= 'z'))
 		{
 			return (0);
 		}
-		if (! str[i] >= 'A' && str[i] <= 'Z')
+		if (!(str[i] >= 'A' && str[i] <= 'Z'))
 		{
 			return (0);
 		}
