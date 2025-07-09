@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 10:41:55 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/09 11:07:16 by vikaradu         ###   ########.fr       */
+/*   Created: 2025/07/09 11:58:25 by vikaradu          #+#    #+#             */
+/*   Updated: 2025/07/09 13:58:55 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_str_is_numeric(char *str)
+char	*ft_strupcase(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (!(str[i] >= 48 && str[i] <= 57))
+		if (str[i] >= 'a' && str[i] <= 'z')
 		{
-			return (0);
-		}	
-			++i;
+			str[i] += ('A' - 'a');
+		}
+	++i;
 	}
-	return (1);
+	return (str);
 }
 /*
 int main(void)
-{ printf("%d",ft_str_is_numeric("000a"));
+{	
+	char a[] = "Xx0i";
+		printf("%s", ft_strupcase(a));
 }*/

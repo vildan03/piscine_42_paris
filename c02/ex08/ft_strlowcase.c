@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 10:41:55 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/09 11:07:16 by vikaradu         ###   ########.fr       */
+/*   Created: 2025/07/09 14:03:13 by vikaradu          #+#    #+#             */
+/*   Updated: 2025/07/09 15:15:30 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_str_is_numeric(char *str)
+char	*ft_strlowcase(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (!(str[i] >= 48 && str[i] <= 57))
+		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
-			return (0);
-		}	
-			++i;
+			str[i] -= ('A' - 'a');
+		}
+		++i;
 	}
-	return (1);
+	return (str);
 }
 /*
 int main(void)
-{ printf("%d",ft_str_is_numeric("000a"));
+{
+	char s[] = "0JHDJHJHDJKSDKJVJKSD78378523872dwada
+	printf("%s", ft_strlowcase(s));
 }*/
