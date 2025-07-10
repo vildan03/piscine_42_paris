@@ -12,22 +12,33 @@
 
 #include <stdio.h>
 
-int	ft_str_is_alpha(char *str)
+int ft_str_is_alpha(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
+		char ch = str[i];
+		if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')))
+		{
+			return (0);
+		}
+
+		if (!(ch >= 'a' && ch <= 'a'))
+		{
+			if ()
+		}
+
 		if (!(str[i] >= 'a' && str[i] <= 'z'))
 		{
 			return (0);
 		}
-		if (!(str[i] >= 'A' && str[i] <= 'Z'))
+		else if (!(str[i] >= 'A' && str[i] <= 'Z'))
 		{
 			return (0);
 		}
-	++i;
+		++i;
 	}
 	return (1);
 }
