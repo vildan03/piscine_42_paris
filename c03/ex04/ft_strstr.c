@@ -37,7 +37,7 @@ char	*ft_strstr(char *str, char *to_find)
 #include <stdio.h>
 int main(void)
 {
-	char str[] = "i love you";
+	char str[] = "";
 	char to_find[] = "love";
 	printf("%s", ft_strstr(str,to_find));
 //	printf("%s",strstr(str,to_find));

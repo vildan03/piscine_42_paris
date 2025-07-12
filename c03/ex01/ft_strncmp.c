@@ -29,11 +29,12 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 		}
 		else if (s1[i] < s2[i])
 		{
+		
+			return (s1[i] - s2[i]);
 		}
-			return (s1[i] - s2[i]);
 		++i;
+	
 	}
-			return (s1[i] - s2[i]);
 }
 
 #include <string.h>
@@ -43,7 +44,7 @@ int main(void)
 	char s1[] = "ab";
 	char s2[] = "abjdyfgjdyf";
 	unsigned int n;
-	n = 2;
+	n = 5;
 	printf("%d \n",ft_strncmp(s1,s2,n));
 	printf("%d", strncmp(s1,s2,n));
 }

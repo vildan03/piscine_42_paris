@@ -33,7 +33,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 int main(void)
 
 {
-	char src[] = "an";
+	char src[] = "hello";
   	char dest[] = "";
 	unsigned int n;
 	n = 5;
