@@ -10,38 +10,74 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
-{
-	unsigned	int i;
+#include <stdio.h>
+#include <string.h>
+int	ft_strstr_p(char *str, char *to_find, unsigned int p)
+{	
 	unsigned	int f;
-
-	i = 0;
+	unsigned	int b;
+	b = 1;
 	f = 0;
-	while (to_find[f] != '\0' && str[i] != '\0')
-	{
-		while (str[i + f] ==  to_find[f])
-		{
-			++f;
+	while (str[p] != '\0' && to_find[f] != '\0' )
+	{	
+		 
+		if(str[p+f] != to_find[f])
+		{	b = 0;
+			break;
 		}
-		if(str[i+f] != to_find[f] && to_find[f] != '\0')
+		else
 		{
-		++i;
+ 			++f;
 		}
 	}
-	return &str[i];
+	return b;
 }
-			
+
+char	*ft_strstr(char *str, char *to_find)
+{
+	unsigned int f;
+	unsigned int p;
+	f=0;
+	p=0;
+	unsigned int b; 
+	while(str[p] != '\0')
+	{	
+	b = ft_strstr_p(str,to_find,p);
+		if(b==1)
+		{
+			return (&str[p]);
+		}
+		else
+		{
+		++p;
+		}
+	}
+	return (str);
+}
+
+	
 
 
-#include <string.h>
-#include <stdio.h>
+
+
+
+		
 int main(void)
 {
-	char str[] = "i love you";
-	char to_find[] = "love";
-	printf("%s", ft_strstr(str,to_find));
+printf("%s", ft_strstr("hello" , "ll"));
+}	 	
+		
+
+
+
+
+
+
+
+//	char str[] = "i love you";
+//	char to_find[] = "love";
+//	printf("%s", ft_strstr(str,to_find));
 //	printf("%s",strstr(str,to_find));
-}
 
 
 

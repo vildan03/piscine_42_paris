@@ -39,5 +39,4 @@ int main(void)
 	n = 5;
 	ft_strncpy(dest,src,n);
 	printf("destination:%s,source:%s,n:%d",dest,src,n);
-}
-*/
+}*/
