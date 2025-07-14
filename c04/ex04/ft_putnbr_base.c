@@ -1,85 +1,73 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/14 16:36:29 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/14 16:37:49 by vikaradu         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
+#include <unistd.h>
+int is_base_valid(char *base)
+{ 	
+	int i;
 	i = 0;
-	while (str[i] != '\0')
+	while(base[i] != '\0')
 	{
-		i++;
-	}
-	return (i);
-}
-
-int	base_check(char *base)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	if (base[0] == '\0' || base[1] == '\0')
-		return (0);
-	while (base[i])
-	{
-		j = 0;
-		while (base[j])
-		{
-			if (i != j && base[i] == base[j])
-				return (0);
-			j++;
+		if(base[i] == '-' || base[i] == '+')
+		{	
+			return 0;
 		}
-		if (base[i] == 43 || base[i] == 45
-			|| !(base[i] >= 32 && base[i] <= 126))
-			return (0);
-		i++;
+		++i;
 	}
-	return (1);
+	if(i == 0 || i == 1 )
+	{
+		return 0;
+	}
+	int p;
+	p = 0;
+	while(base[p] != '\0')
+	{
+		i = p + 1;
+		while(base[i] != '\0')
+		{	
+			if(base[i] == base[p])
+			{
+				return 0;
+			}
+			++i;
+		}
+		++p;	
+	}
+	write(1,"a",1);
+	return 1;
 }
+
+void	putnbr_validated_base( int nbr,char *base)
+{
+write(1,"b",1); 
+}
+
+
+
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	long	nb;
-	long	base_size;
-
-	nb = nbr;
-	base_size = ft_strlen(base);
-	if (base_check(base))
+	 
+	if(is_base_valid(base))
 	{
-		if (nb < 0)
-		{
-			ft_putchar('-');
-			nb = nb * -1;
-		}
-		if (nb < base_size)
-		{
-			ft_putchar(base[nb]);
-		}
-		else
-		{
-			ft_putnbr_base(nb / base_size, base);
-			ft_putnbr_base(nb % base_size, base);
-		}
+		putnbr_validated_base(nbr,base);
+		
 	}
+
+		
 }
 #include <stdio.h>
-int main() {
-    char my_base[] = "0123456789ABCDEF";
-    ft_putnbr_base(-21474838, my_base);
-    return 0;
+int main (void)
+{
+ft_putnbr_base(1,"-");
+ft_putnbr_base(1,"-9");
+ft_putnbr_base(1,"+-");
+ft_putnbr_base(1,"+");
+ft_putnbr_base(1,"9+");
+ft_putnbr_base(1,"9-");
+ft_putnbr_base(1,"1");
+ft_putnbr_base(1,"");
+ft_putnbr_base(1,"22");
+ft_putnbr_base(1,"122");
+ft_putnbr_base(1,"221");
+ft_putnbr_base(1,"212");
+ft_putnbr_base(1,"1231");
+ft_putnbr_base(1,"123");
 }
