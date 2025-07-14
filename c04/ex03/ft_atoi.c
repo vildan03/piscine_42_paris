@@ -9,34 +9,35 @@
 /*   Updated: 2025/07/14 16:31:04 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 int	ft_atoi(char *str)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int i;
+	int result;
+	int sign;
 
 	i = 0;
+	result = 0;
 	sign = 1;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	while(str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))	
 	{
-		if (str[i] == '-')
-			sign = sign * -1;
-		i++;
+		++i;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while(str[i] == '-' || str[i] == '+')
+	{	if(str[i] == '-')
+		{
+			sign = sign * -1;
+		}
+			++i;
+	}
+	while(str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');
-		i++;
+			++i;	
 	}
 	return (result * sign);
 }
-
 #include <stdio.h>
-int main()
+int main(void)
 {
-    char str[] = "	-+-+-2323jf342323";
-    printf("%d", ft_atoi(str));
+printf("%d", ft_atoi("	  	--+++-++6"));
 }
