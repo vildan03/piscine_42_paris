@@ -29,20 +29,21 @@ while (digit > 0)
 void ft_putnbr(int nb)
 {	
 	char str[12];
-
+	long n = nb;
 	int digit;
-	if(nb == 0)
+	if(n == 0)
 	{
 		write(1,"0",1);
+		return;
 	}
 
-	if (nb < 0)
+	if (n < 0)
 	{	write(1, "-",1);
-		nb = nb * -1;
+		n = -n;
 	}
-	digit = digits(nb);
-	converter_char(nb,str);
-	write(1,&str,digit);
+	digit = digits(n);
+	converter_char(n,str);
+	write(1,str,digit);
 }
 int main(void)
 {
