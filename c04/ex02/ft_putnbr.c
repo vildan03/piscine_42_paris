@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int digits(int nbr)
+long digits(long nbr)
 {
     int i;
     i = 0;
@@ -13,15 +13,44 @@ int digits(int nbr)
     return (i);
 }
 
-void converter()
+void converter_char(unsigned long nbr, char *str)
 {
+int	digit;
+digit = digits(nbr);
+str[digit] = '\0';
+while (digit > 0)
+{
+	str[digit-1] = '0' + nbr % 10;
+	--digit;
+	nbr = nbr / 10;
+}
 }
 
 void ft_putnbr(int nb)
-{
-}
+{	
+	char str[12];
 
+	int digit;
+	if(nb == 0)
+	{
+		write(1,"0",1);
+	}
+
+	if (nb < 0)
+	{	write(1, "-",1);
+		nb = nb * -1;
+	}
+	digit = digits(nb);
+	converter_char(nb,str);
+	write(1,&str,digit);
+}
 int main(void)
 {
-    printf("%d", digits(40));
+	ft_putnbr(-42);
+	write(1,"\n",1);
+	ft_putnbr(-2147483647);
+	write(1,"\n",1);
+	ft_putnbr(2147483647);
+	write(1,"\n",1);
+	ft_putnbr(0);
 }
