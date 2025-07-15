@@ -17,35 +17,29 @@ int	ft_strstr_p(char *str, char *to_find, unsigned int p)
 
 {
 	unsigned int	f;
-	unsigned int	b;
-
-						b = 1;
 						f = 0;
 	while (to_find[f] != '\0')
 	{
 		if (str[p + f] != to_find[f])
-		{
-			b = 0;
-			break ;
+		{	
+			return (0);
 		}
 		else
 		{
 			++f;
 		}
 	}
-	return (b);
+	return (1);
 }
 
 char	*ft_strstr(char *str, char *to_find)
 {
 	unsigned int	p;
-	unsigned int	b;
 
 	p = 0;
 	while (str[p] != '\0')
 	{
-		b = ft_strstr_p(str, to_find, p);
-		if (b == 1)
+		if (ft_strstr_p(str, to_find, p))
 		{
 			return (&str[p]);
 		}
@@ -54,11 +48,11 @@ char	*ft_strstr(char *str, char *to_find)
 			++p;
 		}
 	}
-	return (str);
+	return (NULL);
 }
-/*
+
 int main(void)
 {
-	printf("%s", ft_strstr("abcd", "abc"));
+	printf("%s", ft_strstr("abcd", "iiiiiiii"));
 }
-*/
+

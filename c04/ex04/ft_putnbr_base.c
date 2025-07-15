@@ -1,7 +1,8 @@
 #include <unistd.h>
 int is_base_valid(char *base)
-{ 	
+{  	
 	int i;
+	int length_of_base;
 	i = 0;
 	while(base[i] != '\0')
 	{
@@ -11,6 +12,7 @@ int is_base_valid(char *base)
 		}
 		++i;
 	}
+	length_of_base = i;
 	if(i == 0 || i == 1 )
 	{
 		return 0;
@@ -30,44 +32,22 @@ int is_base_valid(char *base)
 		}
 		++p;	
 	}
-	return 1;
-}
-void ft_putnbr(int nb)
-{	
-	long n = nb;
-
-	if (n == 0)
-	{
-		write(1,"0",1);
-		return;
-	}
-
-	if (n < 0)
-	{	
-		if (n == -2147483648)
-		{
-                	write(1,"-2147483648",11);
-			return;
-		}
-		else
-		{
-			write(1, "-",1);
-			n = -n;
-		}
-	}
-		
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-	}
-	n = n%10 + '0';
-	write(1,&n,1);
+	return length_of_base;
 }
 
 
-void	putnbr_validated_base( int nbr,char *base)
+void	putnbr_validated_base( int nbr,char *base, int length_of_base)
 {
-write(1,"b",1); 
+	if(nbr < length_of_base)
+	{
+		write(1,&base[nbr],1);
+	}
+	else
+	{
+		putnbr_validated_base((nbr / length_of_base),base,length_of_base);
+		nbr = nbr % length_of_base;
+		write(1,&base[nbr],1);
+	}
 }
 
 
@@ -76,30 +56,48 @@ write(1,"b",1);
 void	ft_putnbr_base(int nbr, char *base)
 {
 	 
-	if(is_base_valid(base))
+	int length_of_base;
+	length_of_base = is_base_valid(base);
+	if(length_of_base != 0)
 	{
-		putnbr_validated_base(nbr,base);
+		putnbr_validated_base(nbr,base,length_of_base);
 		
 	}
 
 		
 }
+
 #include <stdio.h>
 int main (void)
 {
 ft_putnbr_base(1,"-");
+write(1,"1",1);
 ft_putnbr_base(1,"-9");
+write(1,"2",1);
 ft_putnbr_base(1,"+-");
+write(1,"3xx",1);
 ft_putnbr_base(1,"+");
+write(1,"4xx",1);
 ft_putnbr_base(1,"9+");
+write(1,"5xx",1);
 ft_putnbr_base(1,"9-");
+write(1,"6xx",1);
 ft_putnbr_base(1,"1");
+write(1,"7xx",1);
 ft_putnbr_base(1,"");
+write(1,"8xx",1);
 ft_putnbr_base(1,"22");
+write(1,"9xx",1);
 ft_putnbr_base(1,"122");
+write(1,"ax",1);
 ft_putnbr_base(1,"221");
+write(1,"bxx",1);
 ft_putnbr_base(1,"212");
+write(1,"cxx",1);
 ft_putnbr_base(1,"1231");
+write(1,"dxx",1);
 ft_putnbr_base(1,"123");
-ft_putnbr_base(1,"123");
+write(1,"exx",1);
+ft_putnbr_base(5,"abcde");
+write(1,"fxx",1);
 }
