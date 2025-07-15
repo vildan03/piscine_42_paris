@@ -30,7 +30,6 @@ int is_base_valid(char *base)
 		}
 		++p;	
 	}
-	write(1,"a",1);
 	return 1;
 }
 
@@ -69,5 +68,6 @@ ft_putnbr_base(1,"122");
 ft_putnbr_base(1,"221");
 ft_putnbr_base(1,"212");
 ft_putnbr_base(1,"1231");
+ft_putnbr_base(1,"123");
 ft_putnbr_base(1,"123");
 }
