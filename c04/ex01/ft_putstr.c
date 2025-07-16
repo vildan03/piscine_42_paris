@@ -1,17 +1,30 @@
-#include <stdio.h>
-void ft_putstr(char *str)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/16 11:53:20 by vikaradu          #+#    #+#             */
+/*   Updated: 2025/07/16 11:55:35 by vikaradu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+void	ft_putstr(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        write(1, &str[i], 1);
-        ++i;
-    }
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		++i;
+	}
 }
-
+/*
 int main(void)
 {
     ft_putstr("anan");
-}
+}*/

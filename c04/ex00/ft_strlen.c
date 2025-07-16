@@ -6,22 +6,26 @@
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 11:33:44 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/14 11:33:55 by vikaradu         ###   ########.fr       */
+/*   Updated: 2025/07/16 11:52:16 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *str)
-{
-    int i;
-    i = 0;
-    while (str[i] != '\0')
-    {
-        ++i;
-    }
-    return (i);
-}
+#include <stdio.h>
 
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		++i;
+	}
+	return (i);
+}
+/*
 int main(void)
 {
     printf("%d", ft_strlen("hello"));
 }
+*/

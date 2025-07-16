@@ -1,72 +1,79 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/16 11:26:28 by vikaradu          #+#    #+#             */
+/*   Updated: 2025/07/16 14:26:11 by vikaradu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
-int is_base_valid(char *base)
-{  	
-	int i;
-	int length_of_base;
-	i = 0;
-	while(base[i] != '\0')
-	{
-		if(base[i] == '-' || base[i] == '+')
-		{	
-			return 0;
-		}
-		++i;
-	}
-	length_of_base = i;
-	if(i == 0 || i == 1 )
-	{
-		return 0;
-	}
-	int p;
+
+int	duplicate(char *base)
+{
+	int	i;
+	int	p;
+
 	p = 0;
-	while(base[p] != '\0')
+	i = 0;
+	while (base[p] != '\0')
 	{
 		i = p + 1;
-		while(base[i] != '\0')
-		{	
-			if(base[i] == base[p])
-			{
-				return 0;
-			}
+		while (base[i] != '\0')
+		{
+			if (base[i] == base[p])
+				return (0);
 			++i;
 		}
-		++p;	
+		++p;
 	}
-	return length_of_base;
+	return (1);
 }
 
-
-void	putnbr_validated_base( int nbr,char *base, int length_of_base)
+int	is_base_valid(char *base)
 {
-	if(nbr < length_of_base)
+	int	i;
+	int	length_of_base;
+
+	i = 0;
+	while (base[i] != '\0')
 	{
-		write(1,&base[nbr],1);
+		if (base[i] == '-' || base[i] == '+')
+			return (0);
+		++i;
 	}
+	if (duplicate (base) == 0)
+		return (0);
+	length_of_base = i;
+	if (i == 0 || i == 1)
+		return (0);
+	return (length_of_base);
+}
+
+void	putnbr_validated_base( int nbr, char *base, int length_of_base)
+{
+	if (nbr < length_of_base)
+		write (1, &base[nbr], 1);
 	else
 	{
-		putnbr_validated_base((nbr / length_of_base),base,length_of_base);
+		putnbr_validated_base((nbr / length_of_base), base, length_of_base);
 		nbr = nbr % length_of_base;
-		write(1,&base[nbr],1);
+		write (1, &base[nbr], 1);
 	}
 }
-
-
-
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	 
-	int length_of_base;
+	int	length_of_base;
+
 	length_of_base = is_base_valid(base);
-	if(length_of_base != 0)
-	{
-		putnbr_validated_base(nbr,base,length_of_base);
-		
-	}
-
-		
+	if (length_of_base != 0)
+		putnbr_validated_base(nbr, base, length_of_base);
 }
-
+/*
 #include <stdio.h>
 int main (void)
 {
@@ -101,3 +108,4 @@ write(1,"exx",1);
 ft_putnbr_base(5,"abcde");
 write(1,"fxx",1);
 }
+*/

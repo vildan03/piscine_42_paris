@@ -6,7 +6,7 @@
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 19:26:27 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/14 14:22:24 by vikaradu         ###   ########.fr       */
+/*   Updated: 2025/07/16 11:19:23 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ unsigned	int	ft_strlcat(char *dest, char *src, unsigned int size)
 		dest[i + j] = '\0';
 	return (i + s);
 }
-
+/*
  int main(void)
 {
 char dest[5] = "t";
 char src[3] = "ip";
 printf("%d", ft_strlcat(dest,src,sizeof(dest)));
 }
-
+*/

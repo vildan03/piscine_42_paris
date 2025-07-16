@@ -6,9 +6,13 @@
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 12:28:18 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/14 10:59:36 by vikaradu         ###   ########.fr       */
+/*   Updated: 2025/07/16 11:47:42 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
+#include <string.h>
+
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
@@ -20,9 +24,7 @@ int	ft_strcmp(char *s1, char *s2)
 	}
 	return (s1[i] - s2[i]);
 }
-/*#include <string.h>
-#include <stdio.h>
-int main(void)
+/*int main(void)
 {
 	char s1[] = "uidbhciubv";
 	char s2[] = "kufgvkuwevfw";

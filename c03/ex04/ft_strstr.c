@@ -6,7 +6,7 @@
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 21:04:04 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/14 14:25:56 by vikaradu         ###   ########.fr       */
+/*   Updated: 2025/07/16 11:17:13 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	ft_strstr_p(char *str, char *to_find, unsigned int p)
 
 {
 	unsigned int	f;
+
 						f = 0;
 	while (to_find[f] != '\0')
 	{
@@ -50,9 +51,9 @@ char	*ft_strstr(char *str, char *to_find)
 	}
 	return (NULL);
 }
-
+/*
 int main(void)
 {
 	printf("%s", ft_strstr("abcd", "iiiiiiii"));
 }
-
+*/
