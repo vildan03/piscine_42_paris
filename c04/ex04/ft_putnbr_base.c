@@ -6,7 +6,7 @@
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:26:28 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/16 14:26:11 by vikaradu         ###   ########.fr       */
+/*   Updated: 2025/07/17 13:27:00 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,22 @@ int	is_base_valid(char *base)
 }
 
 void	putnbr_validated_base( int nbr, char *base, int length_of_base)
-{
-	if (nbr < length_of_base)
-		write (1, &base[nbr], 1);
+{	
+	long int	nb;
+
+	nb = nbr;
+	if (nb < 0)
+	{	
+		write (1, "-", 1);
+		nb = nb * -1;
+	}
+	if (nb < length_of_base)
+		write (1, &base[nb], 1);
 	else
 	{
-		putnbr_validated_base((nbr / length_of_base), base, length_of_base);
-		nbr = nbr % length_of_base;
-		write (1, &base[nbr], 1);
+		putnbr_validated_base((nb / length_of_base), base, length_of_base);
+		nb = nb % length_of_base;
+		write (1, &base[nb], 1);
 	}
 }
 
@@ -106,6 +114,10 @@ write(1,"dxx",1);
 ft_putnbr_base(1,"123");
 write(1,"exx",1);
 ft_putnbr_base(5,"abcde");
-write(1,"fxx",1);
+write(1,"fxx",1); 
+ft_putnbr_base(-2,"abc");
+write(1,"-a",2);
+ft_putnbr_base(-2147483648,"0123456789");
+write(1,"-01",3);
 }
 */

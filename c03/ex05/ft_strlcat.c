@@ -6,7 +6,7 @@
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 19:26:27 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/16 11:19:23 by vikaradu         ###   ########.fr       */
+/*   Updated: 2025/07/17 12:42:06 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ unsigned	int	ft_strlcat(char *dest, char *src, unsigned int size)
 		++i;
 	while (src[s] != '\0')
 		++s;
-	while (j < size - i -1 && src[j] != '\0')
+	while (j < size - i && src[j] != '\0')
 	{
 		dest[i + j] = src[j];
 		++j;
 	}
+	if (j < size - i)
 		dest[i + j] = '\0';
 	return (i + s);
 }

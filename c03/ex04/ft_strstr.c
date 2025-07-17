@@ -6,7 +6,7 @@
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 21:04:04 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/16 11:17:13 by vikaradu         ###   ########.fr       */
+/*   Updated: 2025/07/17 12:40:39 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ char	*ft_strstr(char *str, char *to_find)
 	unsigned int	p;
 
 	p = 0;
+	if (to_find == NULL)
+		return (str);
 	while (str[p] != '\0')
 	{
 		if (ft_strstr_p(str, to_find, p))
@@ -54,6 +56,6 @@ char	*ft_strstr(char *str, char *to_find)
 /*
 int main(void)
 {
-	printf("%s", ft_strstr("abcd", "iiiiiiii"));
+	printf("%s", ft_strstr("abcd", ""));
 }
 */
