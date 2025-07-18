@@ -6,29 +6,28 @@
 /*   By: vikaradu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:26:58 by vikaradu          #+#    #+#             */
-/*   Updated: 2025/07/17 20:08:20 by vikaradu         ###   ########.fr       */
+/*   Updated: 2025/07/18 11:53:22 by vikaradu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int     main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-        int     f;
-        int     s;
+	int	f;
+	int	s;
 
-        f = 1;
-        while (f < argc)
-        {
-                s = 0;
-                while (argv[f][s])
-                {
-                        write (1, &argv[f][s], 1);
-                        s++;
-                }
-                write (1, "\n", 1);
-                f++;
-        }
-        return (0);
+	f = 1;
+	while (f < argc)
+	{
+	s = 0;
+		while (argv[f][s])
+		{
+			write (1, &argv[f][s], 1);
+	s++;
+		}
+		write (1, "\n", 1);
+	f++;
+	}
+	return (0);
 }
-
